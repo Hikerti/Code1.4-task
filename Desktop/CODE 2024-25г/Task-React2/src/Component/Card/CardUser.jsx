@@ -9,6 +9,7 @@ export default function CardUser() {
         navigate('/');
     }
     const nowTime = Date()
+    const rer = 1;
     const [infoArr, setInfoArr] = useState([
         {id: 0, title: 'Тайлер Дырдын', subheader: nowTime, imgTitle: 'Тайлер', imgSrc: "/images/Тайлер.jpg", info: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, voluptates. Quaerat quas qui dolorum aspernatur sed et, delectus aut cupiditate, assumenda nobis inventore, ipsa atque sint. Soluta aut magnam molestiae saepe itaque atque eligendi culpa laudantium. Sint voluptate suscipit error placeat delectus itaque pariatur tenetur laudantium accusantium molestiae, vitae quia!'},
         {id: 1, title: 'Ким Чен Ын', subheader: nowTime, imgTitle: 'Ким', imgSrc: "/images/Ким.jpeg", info: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, voluptates. Quaerat quas qui dolorum aspernatur sed et, delectus aut cupiditate, assumenda nobis inventore, ipsa atque sint. Soluta aut magnam molestiae saepe itaque atque eligendi culpa laudantium. Sint voluptate suscipit error placeat delectus itaque pariatur tenetur laudantium accusantium molestiae, vitae quia!'},
