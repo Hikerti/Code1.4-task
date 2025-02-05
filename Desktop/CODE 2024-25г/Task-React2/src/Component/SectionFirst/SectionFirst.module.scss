@@ -1,0 +1,21 @@
+.grid__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    gap: 20px;
+}
+
+.card-enter {
+    opacity: 0;
+}
+.card-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+}
+.card-exit {
+    opacity: 1;
+}
+.card-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
+}
