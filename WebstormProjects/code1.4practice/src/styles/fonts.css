@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "Primary-Regular";
+    src: url('../../public/fonts/primary_regular.ttf') format('ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Primary-Medium";
+    src: url('../../public/fonts/primary_medium.ttf') format('ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Primary-Bold";
+    src: url('../../public/fonts/primary_bold.ttf') format('ttf');
+    font-weight: bold;
+}
