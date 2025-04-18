@@ -1,8 +1,8 @@
 import express from 'express';
-import getPosts from './fetchPostsRoutes'
+import FetchPosts from './fetchPostsRoutes'
 
 const router = express.Router();
 
-router.use(getPosts);
+router.use(FetchPosts);
 
 export default router;

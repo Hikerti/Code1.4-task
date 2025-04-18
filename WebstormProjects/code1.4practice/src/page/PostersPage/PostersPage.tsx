@@ -2,17 +2,24 @@ import * as React from "react";
 import {Data} from "../../interfaces/MainInterface.ts";
 import {useGetPostersQuery} from "../../stor/API/postersAPI.ts";
 import CardsPost from "../../UI/Cards/CardsPost.tsx";
+import Skeleton from "@mui/material/Skeleton";
 
 
 const PostersPage: React.FC = () => {
-    const {data: posts, isLoading, isError} = useGetPostersQuery();
+    const {data: posts, isLoading, error} = useGetPostersQuery();
 
     if (isLoading) {
-        return <p>Loading...</p>;
+        return (
+            <Skeleton
+                variant="rectangular"
+                sx={{width:'100%', height:'100%'}}
+            />
+        );
     }
 
-    if (isError) {
-        return <p>Error...</p>;
+    if (error) {
+        const err = error as {status: number};
+        return <p>{err.status} Error...</p>;
     }
 
     return (
@@ -22,13 +29,15 @@ const PostersPage: React.FC = () => {
            >
                {posts?.map((elem: Data, index: number) => {
                     return (
-                        <CardsPost
-                            img={elem.img}
-                            title={elem.title}
-                            genres={elem.genres}
-                            index={index}
-                        >
-                        </CardsPost>
+                        <div key={index} className='w-full flex flex-col gap-10 w-full items-center'>
+                            <CardsPost
+                                img={elem.img}
+                                title={elem.title}
+                                genres={elem.genres}
+                                index={elem.id}
+                            >
+                            </CardsPost>
+                        </div>
                     )
                })}
            </div>

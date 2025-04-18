@@ -4,7 +4,7 @@ import UserImg from '../../public/images/пользователей.png'
 import LogoImg from '../../public/images/logoteatre.png'
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import ModalShop from "./ModalShop.tsx";
-import ModalUser from "./ModalUser.tsx";
+import ModalUser from "./ModalUser/ModalUser.tsx";
 
 const Header: React.FC = () => {
 
@@ -50,17 +50,29 @@ const Header: React.FC = () => {
                 <ShoppingBasketIcon
                     className='cursor-pointer'
                     sx={{width: '50px', height: '50px'}}
-                    onClick={() => setShowShop(!showShop)}>
+                    onClick={() => {
+                        setShowShop(!showShop)
+                        setShowUser(false)
+                    }}>
                 </ShoppingBasketIcon>
                 <img
                     className='w-[40px] h-[40px] cursor-pointer xl:!h-[50px] xl:!w-[50px]'
                     src={UserImg}
                     alt="user"
-                    onClick={() => setShowUser(!showUser)}
+                    onClick={() => {
+                        setShowUser(!showUser)
+                        setShowShop(false)
+                    }}
                 />
             </div>
-            <ModalShop showShop={showShop} setShowShop={setShowShop}></ModalShop>
-            <ModalUser showUser={showUser} setShowUser={setShowUser}></ModalUser>
+            <ModalShop
+                showShop={showShop} setShowShop={setShowShop}
+            >
+            </ModalShop>
+            <ModalUser
+                showUser={showUser} setShowUser={setShowUser}
+            >
+            </ModalUser>
         </header>
     );
 };

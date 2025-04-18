@@ -38,3 +38,36 @@ export class GetFetchsPostsCount extends GetFetchsPosts {
         }
     }
 }
+
+export class GetFetchsPostsIndex extends GetFetchsPosts {
+    constructor(private index: number) {
+        super();
+    }
+
+    async getFetchedPosts(req: Request, res: Response): Promise<void> {
+        try {
+            const index = this.index || parseInt(req.params.index);
+
+            if (isNaN(index)) {
+                res.status(400).send("Not a valid count");
+            }
+
+            if (isNaN(index)) {
+                res.status(500).send("Not Posts for index");
+            }
+
+            if (index < 0) {
+                res.status(404).send("Not Found");
+            }
+
+            const posts = await prisma.posters.findMany({
+                where: {id: index}
+            })
+
+            res.status(200).json(posts)
+        } catch (err) {
+            console.error(err);
+            res.status(500).send(err);
+        }
+    }
+}

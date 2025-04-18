@@ -1,14 +1,17 @@
 import * as React from "react";
 import { CardProps } from "../../interfaces/MainInterface";
+import { Link } from "react-router-dom";
 
 
 const CardsPost: React.FC<CardProps> = ({index, title, img, genres}) => {
     return (
-        <div
+        <Link
             className='flex bg-gray-100 w-8/10 h-auto flex-col justify-between gap-5 p-5 rounded-[10px] shadow-xl
                             xl:h-[55vh]
                             lg:h-[50vh]
                             md:h-[40vh] gap-2 md:flex-row'
+            to={`/poster/${index}`}
+            target='_blank'
             key={index}
         >
             <div
@@ -18,7 +21,7 @@ const CardsPost: React.FC<CardProps> = ({index, title, img, genres}) => {
                 <img
                     className='!h-full object-cover rounded-s-[10px]'
                     src={`/images/${img}`}
-                    alt={`elem.${index}`}
+                    alt={`${index}`}
                 />
             </div>
             <div className='w-full flex flex-col  justify-between'>
@@ -45,11 +48,12 @@ const CardsPost: React.FC<CardProps> = ({index, title, img, genres}) => {
                                     font-family-primary-bold text-[1.25rem] py-[10px] rounded-xl duration-200
                                     hover:text-gray-200 hover:bg-red-600
                                     sm:text-[1.75rem]'
+                    onClick={(event) => {event.preventDefault()}}
                 >
                     Добавить в корзину
                 </button>
             </div>
-        </div>
+        </Link>
     );
 };
 
